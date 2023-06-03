@@ -7,7 +7,6 @@ window.onload = function() {
     var caudung = 0;
     var causai = 0;
     var elements = document.querySelectorAll('.bo_cau_hoi');
-    
 
     questions.forEach(function(question) 
     {
@@ -16,7 +15,7 @@ window.onload = function() {
         answers.forEach( function(answer) {
             let correct = answer.classList.contains('correct');
             if (correct) {
-                answer.parentElement.innerHTML += '<img src="https://hoctructuyen.vimaru.edu.vn/theme/image.php/academi/core/1584416815/i/grade_correct" alt="Correct" class="questioncorrectnessicon" />'
+                answer.parentElement.innerHTML += '<img src="https://raw.githubusercontent.com/NguyenTungSk2004/Kientrucmaytinh1/master/thithu/tich.svg" alt="Correct" class="questioncorrectnessicon" />'
             }
         });
 		
@@ -33,7 +32,7 @@ window.onload = function() {
         for(const key in user) 
         {
             const value = user[key];
-            if (value.user_quesion == index) 
+            if (value.user_question == index) 
             {
                 if(value.user_value == true)
                 {
@@ -48,10 +47,10 @@ window.onload = function() {
     });
 
     //Hiển thị thông tin tiêu đề
-    document.querySelector(".diem").innerHTML = `Điểm của bạn là: ${caudung*10/40} `;
-    document.querySelector(".socaudung").textContent = `Số câu trả lời đúng: ${caudung}`;
-    document.querySelector(".socausai").textContent = `Số câu trả lời sai: ${causai}`;
-    document.querySelector(".chuatraloi").textContent = `Số câu chưa làm: ${40-caudung-causai}`;
+    document.querySelector(".diem").innerHTML = `Điểm của bạn là: ${caudung/elements.length*10/40} `;
+    document.querySelector(".socaudung").textContent = `Số câu trả lời đúng: ${caudung/elements.length}`;
+    document.querySelector(".socausai").textContent = `Số câu trả lời sai: ${causai/elements.length}`;
+    document.querySelector(".chuatraloi").textContent = `Số câu chưa làm: ${40-caudung/elements.length-causai/elements.length}`;
     caudung =0;
     causai=0;
 

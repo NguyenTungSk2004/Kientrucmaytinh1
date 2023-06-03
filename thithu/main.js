@@ -24,7 +24,7 @@ window.onload = function() {
             let correct = answer.classList.contains('correct');
                 userAnswers[questionNumber] = 
                 {
-                    user_quesion: questionNumber,
+                    user_question: questionNumber,
                     user_value: correct
                 }
             });
