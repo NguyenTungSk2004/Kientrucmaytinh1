@@ -1,8 +1,9 @@
 window.onload = function() {
 
+    //Lấy dữ liệu từ file main.js và khai báo biến
     const user = JSON.parse(localStorage.getItem('userAnswers'));
     const questions = document.querySelectorAll('.question');
-    const randomIndex = JSON.parseInt(localStorage.getItem('randomIndex'));
+    const randomIndex = parseInt(localStorage.getItem('randomIndex'));
     var caudung = 0;
     var causai = 0;
     var elements = document.querySelectorAll('.bo_cau_hoi');
@@ -46,13 +47,25 @@ window.onload = function() {
         }
     });
 
+    //Hiển thị thông tin tiêu đề
     document.querySelector(".diem").innerHTML = `Điểm của bạn là: ${caudung*10/40} `;
     document.querySelector(".socaudung").textContent = `Số câu trả lời đúng: ${caudung}`;
     document.querySelector(".socausai").textContent = `Số câu trả lời sai: ${causai}`;
     document.querySelector(".chuatraloi").textContent = `Số câu chưa làm: ${40-caudung-causai}`;
-    
-    for (var i = 0; i < elements.length-1; i++) 
-    {
-        elements[randomIndex[i]].style.display = 'none';
+    caudung =0;
+    causai=0;
+
+    //Loại bỏ các bộ câu hỏi khác
+    if (randomIndex == 0){
+        elements[1].style.display = 'none';
+        elements[2].style.display = 'none';
+    }
+    if (randomIndex == 1){
+        elements[0].style.display = 'none';
+        elements[2].style.display = 'none';
+    }
+    if (randomIndex == 2){
+        elements[1].style.display = 'none';
+        elements[0].style.display = 'none';
     }
 }

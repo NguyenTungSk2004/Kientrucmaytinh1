@@ -1,10 +1,7 @@
 window.onload = function() {
     var elements = document.querySelectorAll('.bo_cau_hoi');
-    var randomIndex = [];
-    for (var i = 0; i < elements.length-1; i++) 
-    {
-        randomIndex.push(Math.floor(Math.random() * elements.length));
-    }
+    const randomIndex = Math.floor(Math.random() * elements.length);
+   
     //tạo danh sách chứa toàn bộ phần tử có class="question"
     const questions = document.querySelectorAll('.question');
     const userAnswers ={};
@@ -37,12 +34,21 @@ window.onload = function() {
     //Đẩy dữ liệu sang file html thứ 2
     const tinh_diem = document.getElementById('nopbai');
         tinh_diem.addEventListener('click', function() {
-        localStorage.setItem('randomIndex',randomIndex);
+        localStorage.setItem('randomIndex', randomIndex);
         localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
     });
 
-    for (var i = 0; i < elements.length-1; i++) 
-    {
-        elements[randomIndex[i]].style.display = 'none';
+    //Loại bỏ các bộ câu hỏi khác
+    if (randomIndex == 0){
+        elements[1].style.display = 'none';
+        elements[2].style.display = 'none';
+    }
+    if (randomIndex == 1){
+        elements[0].style.display = 'none';
+        elements[2].style.display = 'none';
+    }
+    if (randomIndex == 2){
+        elements[1].style.display = 'none';
+        elements[0].style.display = 'none';
     }
 }
