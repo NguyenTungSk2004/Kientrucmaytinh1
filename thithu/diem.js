@@ -1,9 +1,13 @@
 window.onload = function() {
+
     const user = JSON.parse(localStorage.getItem('userAnswers'));
     const questions = document.querySelectorAll('.question');
+    const randomIndex = JSON.parseInt(localStorage.getItem('randomIndex'));
     var caudung = 0;
     var causai = 0;
+    var elements = document.querySelectorAll('.bo_cau_hoi');
     
+
     questions.forEach(function(question) 
     {
         //thêm dấu thích vào phần đúng
@@ -46,5 +50,9 @@ window.onload = function() {
     document.querySelector(".socaudung").textContent = `Số câu trả lời đúng: ${caudung}`;
     document.querySelector(".socausai").textContent = `Số câu trả lời sai: ${causai}`;
     document.querySelector(".chuatraloi").textContent = `Số câu chưa làm: ${40-caudung-causai}`;
-
+    
+    for (var i = 0; i < elements.length-1; i++) 
+    {
+        elements[randomIndex[i]].style.display = 'none';
+    }
 }

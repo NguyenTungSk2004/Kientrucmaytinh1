@@ -13,6 +13,10 @@ h2{
     text-align: center;
     color: white;
 }
+p{
+    text-align: center;
+    color: white;
+}
 .buttonn {
     display: flex;
     justify-content: center;
